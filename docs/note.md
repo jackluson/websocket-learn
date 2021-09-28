@@ -17,6 +17,8 @@
 ### 开源包
 
 1. [ws](https://github.com/websockets/ws)
+2. [socket.io](https://github.com/socketio/socket.io)
+
 
 ## 二进制数据相关
 

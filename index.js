@@ -20,19 +20,19 @@ function accept(req, res) {
   }
   console.log("req.headers.upgrade ", req.headers.upgrade);
 
-  // wss.handleUpgrade(req, req.socket, Buffer.alloc(0), onConnect);
+  wss.handleUpgrade(req, req.socket, Buffer.alloc(0), onConnect);
 
-  wss.on("connection", function (ws) {
-    console.log(`[SERVER] connection()`);
-    ws.on("message", function (message) {
-      console.log(`[SERVER] Received: ${message}`);
-      // ws.send(`ECHO: ${message}`, (err) => {
-      //     if (err) {
-      //         console.log(`[SERVER] error: ${err}`);
-      //     }
-      // });
-    });
-  });
+  // wss.on("connection", function (ws) {
+  //   console.log(`[SERVER] connection()`);
+  //   ws.on("message", function (message) {
+  //     console.log(`[SERVER] Received: ${message}`);
+  //     // ws.send(`ECHO: ${message}`, (err) => {
+  //     //     if (err) {
+  //     //         console.log(`[SERVER] error: ${err}`);
+  //     //     }
+  //     // });
+  //   });
+  // });
 }
 
 function onConnect(ws) {

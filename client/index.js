@@ -2,8 +2,20 @@ let socket = new WebSocket("ws://localhost:8080");
 
 socket.onopen = function (e) {
   console.info("[open] Connection established");
+
   console.info("Sending to server");
-  socket.send({ name: "My name is John" });
+  const payload = { name: "你好" }
+  // 利用String.fromCodePoint(0x1F639)
+  let oneByte = 'a' // ascall 码
+  let twoByte = '۵'
+  let threeByte = '你' // 大部分中文
+  let fourByte = '😹'
+  
+  let sendMsg = twoByte || JSON.stringify(payload)
+  // let encoder = new TextEncoder();
+
+  // let uint8ArraySend = encoder.encode(sendMsg);
+  socket.send(sendMsg);
 };
 
 socket.onmessage = function (event) {
